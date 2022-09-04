@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    <title>resorts</title>
+{% endblock %}    
+
+{% block body %}
+<nav class="navbar-2 navbar-dark bg-dark">
+    <span class="navbar-brand mb-0 h1">Resorts</span>
+</nav>
+<div class="row">
+    <div class="col-9">
+      <div class="row">
+            {% for P in Productos %}
+            
+            <div class="col-md-3 col-sm-12 col-lg-4">
+
+                <div class="card" style="width: 100%; padding: 15px; background-color: rgba(223, 223, 223, 0);">
+                    <img src="/static/media/{{ P.Imagen }}" style="width: 100%;" class="card-img-top" alt="{{ P.Nombre }}">
+                    <div class="card-body">
+                        <p class="card-title">{{ P.Nombre }}</p>
+                        <p ></p>
+                        <p class="card-title">Fabricante: {{ P.Fabricante }}</p>
+                        <p class="card-title">Precio: ${{ P.Precio }}</p>
+                        <p class="card-title">Stock: {{ P.Stock }}</p>
+                        <p ></p>
+                        <a href="#" class="card-link" style="text-decoration: none;">Agregar</a>
+                        <a href="#" class="card-link" style="text-decoration: none;">Ver</a>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+      </div>
+    </div>
+</div>
+{% endblock %}
